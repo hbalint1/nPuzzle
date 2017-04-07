@@ -74,4 +74,6 @@ if __name__ == '__main__':
     solver.run(AlgorithmTye.ASTAR, 0)
     steps = solver.astar2(Node(game.model.grid, None),
                           Node([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 0]], None))
+    for n in steps:
+        print(n.grid)
     game.run()

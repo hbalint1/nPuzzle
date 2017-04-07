@@ -23,6 +23,8 @@ class GameLogic(object):
 
         self.grid = [[14,5,13,0],[4,7,8,9],[3,15,10,1],[11,2,12,6]]
 
+        # self.grid = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 14], [13, 0, 15, 12]]
+
     def initialize_grid(self):
         """Initializing the underlying grid."""
         # All possible cell value.

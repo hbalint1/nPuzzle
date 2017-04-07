@@ -79,8 +79,7 @@ class Solver(object):
                 break
             if endnode in expanded:
                 continue
-            asd = self.moves(endnode)
-            for k in asd:
+            for k in self.moves(endnode):
                 if k in expanded:
                     continue
                 newpath = [path[0] + self.heuristic_2(k) - self.heuristic_2(endnode)] + path[1:] + [k]
@@ -88,8 +87,8 @@ class Solver(object):
                 if endnode not in expanded:
                     expanded.append(endnode)
             expanded_nodes += 1
-            if expanded_nodes % 1000 == 0:
-                print(expanded_nodes)
+            # if expanded_nodes % 1000 == 0:
+            #     print(expanded_nodes)
         print("Expanded nodes:", expanded_nodes)
         print("Solution:")
         for i in path:
@@ -167,12 +166,14 @@ class Solver(object):
 
         open_set = [start]
 
-        start.gScore = self.heuristic_2(start.grid)
-
+        start.gScore = 0
+        start.fScore = self.heuristic_2(start.grid)
+        expanded_nodes = 0
         while open_set:
-            current = self.select_lowest_gScore(open_set)
+            current = self.select_lowest_fScore(open_set)
 
-            if current.grid == goal.grid:
+            if current == goal:
+                print(expanded_nodes)
                 return self.reconstruct_path(current)
 
             open_set.remove(current)
@@ -182,13 +183,22 @@ class Solver(object):
                 if neighbor in closed_set:
                     continue
 
-                neighbor.gScore = self.heuristic_2(neighbor.grid)
+                tentative_gScore = current.gScore + 1
+
+                # neighbor.gScore = self.heuristic_2(neighbor.grid)
 
                 if neighbor not in open_set:
                     open_set.append(neighbor)
-                elif neighbor.gScore >= current.gScore:
+                elif tentative_gScore >= neighbor.gScore:
                     continue
-            print(len(open_set), len(closed_set))
+
+                neighbor.gScore = tentative_gScore
+                # f(n) = g(n) + h(n)
+                neighbor.fScore = neighbor.gScore + self.heuristic_2(neighbor.grid)
+            expanded_nodes += 1
+            # if expanded_nodes % 1000 == 0:
+            #     print(expanded_nodes)
+            # print(len(open_set), len(closed_set))
         return None
 
 
@@ -231,13 +241,13 @@ class Solver(object):
             node = node.parent
         return nodes[::-1]
 
-    def select_lowest_gScore(self, array):
+    def select_lowest_fScore(self, array):
         if len(array) == 0:
             return
 
         lowest = array[0]
         for i in array:
-            if i.gScore < lowest.gScore:
+            if i.fScore < lowest.fScore:
                 lowest = i
 
         return lowest
