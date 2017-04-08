@@ -33,9 +33,9 @@ class Solver(object):
 
     def run(self, algorithm, heuristic):
         if algorithm == AlgorithmTye.ASTAR:
-            self.astar()
+            return self.astar()
         elif algorithm == AlgorithmTye.BREADTHFIRST:
-            self.breadth_first()
+            return self.breadth_first()
 
     def breadth_first(self):
         """Breadth First algorithm."""
@@ -89,10 +89,11 @@ class Solver(object):
             expanded_nodes += 1
             # if expanded_nodes % 1000 == 0:
             #     print(expanded_nodes)
-        print("Expanded nodes:", expanded_nodes)
-        print("Solution:")
-        for i in path:
-            print(i)
+        # print("Expanded nodes:", expanded_nodes)
+        # print("Solution:")
+        # for i in path:
+        #     print(i)
+        return path
         # pp.pprint(path)
 
     def moves(self, mat):

@@ -21,9 +21,9 @@ class GameLogic(object):
         # self.grid = [[1, 2, 3, 4],[5, 6, 7, 8], [9, 10, 0, 12],[13, 14, 11, 15]]
 
 
-        self.grid = [[14,5,13,0],[4,7,8,9],[3,15,10,1],[11,2,12,6]]
+        # self.grid = [[14,5,13,0],[4,7,8,9],[3,15,10,1],[11,2,12,6]]
 
-        # self.grid = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 14], [13, 0, 15, 12]]
+        self.grid = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 14], [13, 0, 15, 12]]
 
     def initialize_grid(self):
         """Initializing the underlying grid."""
@@ -62,3 +62,9 @@ class GameLogic(object):
             for j in range(self.size):
                 print(self.grid[i][j], end=" ")
             print(" ")
+
+    def grid_from_text(self, text):
+        numbers = text.split(',')
+        for i in range(self.size):
+            for j in range(self.size):
+                self.grid[i][j] = int(numbers[i * self.size + j])
