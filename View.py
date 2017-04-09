@@ -1,4 +1,6 @@
+from functools import partial
 import kivy
+from kivy.clock import Clock
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
@@ -83,8 +85,10 @@ class NPuzzle(App):
         solver = Solver(self.model.grid, self.model.size)
         steps = solver.run(AlgorithmTye.ASTAR, 0)
         steps = steps[1:]
+        a = 0
         for i in steps:
-            print(i)
+            a += 1
+            Clock.schedule_once(partial(self.worker, i, 'my key'), a * 0.5)
 
     def start_btn_pressed(self, instance):
         gridTxt = self.text_input.text
@@ -93,3 +97,8 @@ class NPuzzle(App):
         self.model.grid_from_text(gridTxt)
         self.draw_layout()
         pass
+
+    def worker(self, value, key, *largs):
+        print(value, key, *largs)
+        self.model.grid = value
+        self.draw_layout()
