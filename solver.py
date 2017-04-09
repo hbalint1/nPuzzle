@@ -32,10 +32,15 @@ class Solver(object):
         return end
 
     def run(self, algorithm, heuristic):
+        if(not self.is_solvable()):
+            return None
+
         if algorithm == AlgorithmTye.ASTAR:
             return self.astar()
         elif algorithm == AlgorithmTye.BREADTHFIRST:
             return self.breadth_first()
+
+    # region Algorithms
 
     def breadth_first(self):
         """Breadth First algorithm."""
@@ -96,70 +101,6 @@ class Solver(object):
         return path
         # pp.pprint(path)
 
-    def moves(self, mat):
-        """Returns a list of all possible moves."""
-        output = []
-
-        # m = eval(mat)
-        i = 0
-        while 0 not in mat[i]:
-            i += 1
-        j = mat[i].index(0)   # blank space (zero)
-
-        if i > 0:
-            mat[i][j], mat[i-1][j] = mat[i-1][j], mat[i][j]  # move up
-            output.append([x[:] for x in mat])
-            mat[i][j], mat[i-1][j] = mat[i-1][j], mat[i][j]
-
-        if i < self.size - 1:
-            mat[i][j], mat[i+1][j] = mat[i+1][j], mat[i][j]   # move down
-            output.append([x[:] for x in mat])
-            mat[i][j], mat[i+1][j] = mat[i+1][j], mat[i][j]
-
-        if j > 0:
-            mat[i][j], mat[i][j-1] = mat[i][j-1], mat[i][j]   # move left
-            output.append([x[:] for x in mat])
-            mat[i][j], mat[i][j-1] = mat[i][j-1], mat[i][j]
-
-        if j < self.size - 1:
-            mat[i][j], mat[i][j+1] = mat[i][j+1], mat[i][j]   # move right
-            output.append([x[:] for x in mat])
-            mat[i][j], mat[i][j+1] = mat[i][j+1], mat[i][j]
-
-        return output
-
-    def heuristic_1(self, puzz):
-        """Counts the number of misplaced tiles./Hamming distance"""
-        misplaced = 0
-        compare = 0
-        # m = eval(puzz)
-        for i in range(self.size):
-            for j in range(self.size):
-                if puzz[i][j] != compare:
-                    misplaced += 1
-                compare += 1
-        return misplaced
-
-    def heuristic_2(self, puzz):
-        """Manhattan distance."""
-        distance = 0
-        # m = eval(puzz)
-        for i in range(self.size):
-            for j in range(self.size):
-                value = puzz[i][j]
-                if value == 0:
-                    continue
-                targetX = int((value - 1) / self.size)  # expected x-coordinate (row)
-                targetY = int((value - 1) % self.size)  # expected y-coordinate (col)
-                dx = i - targetX   # x-distance to expected coordinate
-                dy = j - targetY   # y-distance to expected coordinate
-                # print(value, abs(dx) + abs(dy))
-                distance += abs(dx) + abs(dy)
-                # distance += abs(i - (puzz[i][j] / self.size)) + abs(j - (puzz[i][j] % self.size))
-                # print(distance)
-        return distance
-
-
     def astar2(self, start, goal):
         """A* algorithm."""
 
@@ -202,6 +143,109 @@ class Solver(object):
             # print(len(open_set), len(closed_set))
         return None
 
+    #endregion
+
+    # region Heuristics
+
+    def heuristic_1(self, puzz):
+        """Counts the number of misplaced tiles./Hamming distance"""
+        misplaced = 0
+        compare = 0
+        # m = eval(puzz)
+        for i in range(self.size):
+            for j in range(self.size):
+                if puzz[i][j] != compare:
+                    misplaced += 1
+                compare += 1
+        return misplaced
+
+    def heuristic_2(self, puzz):
+        """Manhattan distance."""
+        distance = 0
+        # m = eval(puzz)
+        for i in range(self.size):
+            for j in range(self.size):
+                value = puzz[i][j]
+                if value == 0:
+                    continue
+                targetX = int((value - 1) / self.size)  # expected x-coordinate (row)
+                targetY = int((value - 1) % self.size)  # expected y-coordinate (col)
+                dx = i - targetX   # x-distance to expected coordinate
+                dy = j - targetY   # y-distance to expected coordinate
+                # print(value, abs(dx) + abs(dy))
+                distance += abs(dx) + abs(dy)
+                # distance += abs(i - (puzz[i][j] / self.size)) + abs(j - (puzz[i][j] % self.size))
+                # print(distance)
+        return distance
+
+    #endregion
+
+    def is_solvable(self):
+        # we straighten the numbers from matrix
+        # without the blank tile (0)
+        blankRow = 0
+        straightenNumbers = []
+        for i in range(self.size):
+            for j in range(self.size):
+                if(self.start_state[i][j] != 0):
+                    straightenNumbers.append(self.start_state[i][j])
+                else:
+                    blankRow = i
+
+        # check for inversion count
+        inv_count = self.inversion_count(straightenNumbers)
+
+        if(self.size % 2 == 0):  # even grid
+            if(blankRow % 2 == 0 and inv_count % 2 == 1):  # blank on even row, counting from bottom
+                return True
+            elif(blankRow % 2 == 1 and inv_count % 2 == 0):  # blank on odd row, counting from bottom
+                return True
+        else:  # odd grid
+            if(inv_count % 2 == 1):
+                return True
+        return False
+
+    def inversion_count(self, straightenNumbers):
+        count = 0
+        for i in range(0, len(straightenNumbers)):
+            for j in range(i+1, len(straightenNumbers)):
+                if(straightenNumbers[j] < straightenNumbers[i]):
+                    # print(straightenNumbers[j], straightenNumbers[i])
+                    count += 1
+        # print(count)
+        return count
+
+    def moves(self, mat):
+        """Returns a list of all possible moves."""
+        output = []
+
+        # m = eval(mat)
+        i = 0
+        while 0 not in mat[i]:
+            i += 1
+        j = mat[i].index(0)   # blank space (zero)
+
+        if i > 0:
+            mat[i][j], mat[i-1][j] = mat[i-1][j], mat[i][j]  # move up
+            output.append([x[:] for x in mat])
+            mat[i][j], mat[i-1][j] = mat[i-1][j], mat[i][j]
+
+        if i < self.size - 1:
+            mat[i][j], mat[i+1][j] = mat[i+1][j], mat[i][j]   # move down
+            output.append([x[:] for x in mat])
+            mat[i][j], mat[i+1][j] = mat[i+1][j], mat[i][j]
+
+        if j > 0:
+            mat[i][j], mat[i][j-1] = mat[i][j-1], mat[i][j]   # move left
+            output.append([x[:] for x in mat])
+            mat[i][j], mat[i][j-1] = mat[i][j-1], mat[i][j]
+
+        if j < self.size - 1:
+            mat[i][j], mat[i][j+1] = mat[i][j+1], mat[i][j]   # move right
+            output.append([x[:] for x in mat])
+            mat[i][j], mat[i][j+1] = mat[i][j+1], mat[i][j]
+
+        return output
 
     def moves2(self, node):
         """Returns a list of all possible moves."""

@@ -3,6 +3,8 @@ import kivy
 from kivy.clock import Clock
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+from kivy.uix.label import Label
+from kivy.uix.popup import Popup
 from kivy.uix.textinput import TextInput
 from kivy.uix.gridlayout import GridLayout
 from kivy.app import App
@@ -29,6 +31,11 @@ class NPuzzle(App):
         # self.model = model
         self.initialize_layout()
         # self.draw_layout()
+
+    def build(self):
+        return self.box_layout
+
+    # region Methods
 
     def initialize_layout(self):
         self.box_layout = BoxLayout(orientation='vertical', spacing=10)
@@ -62,10 +69,9 @@ class NPuzzle(App):
                 btn.bind(on_press=self.btn_pressed)
                 self.grid_layout.add_widget(btn)
 
-    def build(self):
-        return self.box_layout
+    #endregion
 
-    ############### Event handlers #############################
+    # region Event Handlers
 
     def btn_pressed(self, instance):
         # print('My button <%s>' % (instance))
@@ -84,6 +90,18 @@ class NPuzzle(App):
     def solve_btn_pressed(self, instance):
         solver = Solver(self.model.grid, self.model.size)
         steps = solver.run(AlgorithmTye.ASTAR, 0)
+        if(steps is None):
+            box = BoxLayout(orientation='vertical', spacing=10)
+            box.add_widget(Label(text='A feladat megoldhatatlan!'))
+            btn = Button(text='ok')
+            box.add_widget(btn)
+            popup = Popup(title='Hiba!',
+                          content=box,
+                          auto_dismiss=False)
+            btn.bind(on_press=popup.dismiss)
+            popup.open()
+            return
+
         steps = steps[1:]
         a = 0
         for i in steps:
@@ -97,6 +115,8 @@ class NPuzzle(App):
         self.model.grid_from_text(gridTxt)
         self.draw_layout()
         pass
+
+    #endregion
 
     def worker(self, value, key, *largs):
         print(value, key, *largs)
