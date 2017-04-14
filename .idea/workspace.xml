@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0bb4eb3-4229-4748-aa9c-33f604cf109f" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/View.py" afterPath="$PROJECT_DIR$/View/View.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gameLogic.py" afterPath="$PROJECT_DIR$/Model/gameLogic.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myButton.py" afterPath="$PROJECT_DIR$/View/myButton.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/node.py" afterPath="$PROJECT_DIR$/Solver/node.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/solver.py" afterPath="$PROJECT_DIR$/Solver/solver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nPuzzle.iml" afterPath="$PROJECT_DIR$/.idea/nPuzzle.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Solver/solver.py" afterPath="$PROJECT_DIR$/Solver/solver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/View.py" afterPath="$PROJECT_DIR$/View/View.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kv_templates/my.kv" afterPath="$PROJECT_DIR$/kv_templates/my.kv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nPuzzle.py" afterPath="$PROJECT_DIR$/nPuzzle.py" />
     </list>
     <ignored path="nPuzzle.iws" />
@@ -35,41 +29,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nPuzzle.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nPuzzle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nPuzzle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="80" lean-forward="true" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
+            <state relative-caret-position="51">
+              <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="View.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/View/View.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+            <state relative-caret-position="227">
+              <caret line="120" column="20" lean-forward="false" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
-                <element signature="e#1282#1298#0" expanded="false" />
-                <element signature="e#1335#1809#0" expanded="false" />
-                <element signature="e#1825#1848#0" expanded="false" />
-                <element signature="e#1895#2234#0" expanded="false" />
-                <element signature="e#2288#2340#0" expanded="false" />
-                <element signature="e#2393#3095#0" expanded="false" />
-                <element signature="e#3148#3333#0" expanded="false" />
+                <element signature="e#1423#1439#0" expanded="false" />
+                <element signature="e#1476#1950#0" expanded="false" />
+                <element signature="e#2036#2375#0" expanded="false" />
+                <element signature="e#2429#2481#0" expanded="false" />
+                <element signature="e#3389#3574#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myButton.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/myButton.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -77,8 +59,8 @@
       <file leaf-file-name="my.kv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kv_templates/my.kv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            <state relative-caret-position="270">
+              <caret line="45" column="31" lean-forward="false" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -87,22 +69,14 @@
       <file leaf-file-name="solver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Solver/solver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+            <state relative-caret-position="-2139">
+              <caret line="164" column="41" lean-forward="true" selection-start-line="164" selection-start-column="41" selection-end-line="164" selection-end-column="41" />
               <folding>
+                <element signature="e#0#21#0" expanded="true" />
                 <element signature="e#372#467#0" expanded="false" />
                 <element signature="e#501#760#0" expanded="false" />
+                <element signature="e#3336#4585#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gameLogic.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Model/gameLogic.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1011">
-              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -121,8 +95,10 @@
         <option value="$PROJECT_DIR$/node.py" />
         <option value="$PROJECT_DIR$/gameLogic.py" />
         <option value="$PROJECT_DIR$/solver.py" />
-        <option value="$PROJECT_DIR$/kv_templates/my.kv" />
         <option value="$PROJECT_DIR$/View.py" />
+        <option value="$PROJECT_DIR$/kv_templates/my.kv" />
+        <option value="$PROJECT_DIR$/Solver/solver.py" />
+        <option value="$PROJECT_DIR$/View/View.py" />
         <option value="$PROJECT_DIR$/nPuzzle.py" />
       </list>
     </option>
@@ -426,7 +402,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23352855" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -466,22 +442,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/Solver/solver.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Model/gameLogic.py</url>
-          <line>66</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="67" />
+      <option name="time" value="69" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -490,13 +454,31 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Model/gameLogic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nPuzzle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="43" column="46" lean-forward="false" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Solver/solver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -529,8 +511,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -563,42 +547,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Solver/node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/gameLogic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nPuzzle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="43" column="46" lean-forward="false" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Solver/solver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#372#467#0" expanded="false" />
-            <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -631,8 +583,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -658,8 +612,10 @@
         <state relative-caret-position="0">
           <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -685,8 +641,10 @@
         <state relative-caret-position="0">
           <caret line="184" column="65" lean-forward="false" selection-start-line="184" selection-start-column="65" selection-end-line="184" selection-end-column="65" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -704,8 +662,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -731,8 +691,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -758,8 +720,10 @@
         <state relative-caret-position="0">
           <caret line="86" column="43" lean-forward="false" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -785,8 +749,10 @@
         <state relative-caret-position="0">
           <caret line="130" column="24" lean-forward="false" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -812,8 +778,10 @@
         <state relative-caret-position="0">
           <caret line="109" column="26" lean-forward="false" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
           <folding>
+            <element signature="e#0#21#0" expanded="true" />
             <element signature="e#372#467#0" expanded="false" />
             <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -858,21 +826,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Solver/solver.py">
+    <entry file="file://$PROJECT_DIR$/Solver/node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
-          <folding>
-            <element signature="e#372#467#0" expanded="false" />
-            <element signature="e#501#760#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="162">
+          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/gameLogic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1011">
+        <state relative-caret-position="250">
           <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Python36-32/Lib/site-packages/kivy/uix/widget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="431" column="0" lean-forward="false" selection-start-line="431" selection-start-column="0" selection-end-line="431" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Python36-32/Lib/site-packages/kivy/uix/behaviors/button.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kv_templates/my.kv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="45" column="31" lean-forward="false" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -885,44 +874,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kv_templates/my.kv">
+    <entry file="file://$PROJECT_DIR$/Solver/solver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Solver/node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nPuzzle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="80" lean-forward="true" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
-          <folding />
+        <state relative-caret-position="-2139">
+          <caret line="164" column="41" lean-forward="true" selection-start-line="164" selection-start-column="41" selection-end-line="164" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#372#467#0" expanded="false" />
+            <element signature="e#501#760#0" expanded="false" />
+            <element signature="e#3336#4585#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/View.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+        <state relative-caret-position="227">
+          <caret line="120" column="20" lean-forward="false" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1282#1298#0" expanded="false" />
-            <element signature="e#1335#1809#0" expanded="false" />
-            <element signature="e#1825#1848#0" expanded="false" />
-            <element signature="e#1895#2234#0" expanded="false" />
-            <element signature="e#2288#2340#0" expanded="false" />
-            <element signature="e#2393#3095#0" expanded="false" />
-            <element signature="e#3148#3333#0" expanded="false" />
+            <element signature="e#1423#1439#0" expanded="false" />
+            <element signature="e#1476#1950#0" expanded="false" />
+            <element signature="e#2036#2375#0" expanded="false" />
+            <element signature="e#2429#2481#0" expanded="false" />
+            <element signature="e#3389#3574#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nPuzzle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

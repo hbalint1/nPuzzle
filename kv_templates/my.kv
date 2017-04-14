@@ -35,14 +35,14 @@
         orientation: 'vertical'
         size_hint: .4, 1
         Spinner:
-            id: sp1
-            values: root.vals
-            # text: str(len(root.vals))
-            text: str(root.vals[0:1]).strip('[\[\]\']')
+            id: algo_sp
+            values: root.algo_types
+            text: str(root.algo_types[0:1]).strip('[\[\]\']')
             pos_hint: {'center_y': .7}
             height: '48dp'
         Spinner:
-            text: 'Home'
-            values: ('Home', 'Work', 'Other', 'Not defined')
+            id: heur_sp
+            values: root.heur_types
+            text: str(root.heur_types[0:1]).strip('[\[\]\']')
             pos_hint: {'center_y': .4}
             height: '48dp'

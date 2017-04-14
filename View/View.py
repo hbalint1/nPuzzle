@@ -12,7 +12,7 @@ from kivy.uix.label import Label
 from kivy.uix.popup import Popup
 
 from Model.gameLogic import GameLogic
-from Solver.solver import Solver, AlgorithmType
+from Solver.solver import Solver, AlgorithmType, HeuristicType
 from View.myButton import MyButton
 
 __author__ = 'Balint'
@@ -26,11 +26,15 @@ Config.set('graphics', 'height', '450')
 
 
 class Controller(BoxLayout):
-    vals = ListProperty()
+    algo_types = ListProperty()
+    heur_types = ListProperty()
+
     def __init__(self, **kwargs):
         super(Controller, self).__init__(**kwargs)
         for alg in AlgorithmType:
-            self.vals.append(alg.name)
+            self.algo_types.append(alg.name)
+        for heur in HeuristicType:
+            self.heur_types.append(heur.name)
 
 
 class NPuzzle(App):
@@ -80,7 +84,10 @@ class NPuzzle(App):
 
     def solve_btn_pressed(self, instance):
         solver = Solver(self.model.grid, self.model.size)
-        steps = solver.run(AlgorithmType.ASTAR, 0)
+        steps = solver.run(
+            AlgorithmType[self.controller.ids.algo_sp.text],
+            HeuristicType[self.controller.ids.heur_sp.text])
+
         if(steps is None):
             box = BoxLayout(orientation='vertical', spacing=10)
             box.add_widget(Label(text='A feladat megoldhatatlan!'))
@@ -110,6 +117,7 @@ class NPuzzle(App):
     #endregion
 
     def worker(self, value, key, *largs):
-        print(value, key, *largs)
+        # print(value, key, *largs)
+        print(value)
         self.model.grid = value
         self.draw_layout()

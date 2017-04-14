@@ -38,7 +38,7 @@ class Solver(object):
             return None
 
         if algorithm == AlgorithmType.ASTAR:
-            return self.astar()
+            return self.astar(heuristic)
         elif algorithm == AlgorithmType.BREADTHFIRST:
             return self.breadth_first()
 
@@ -69,9 +69,15 @@ class Solver(object):
         print("Solution:")
         # pp.pprint(path)
 
-    def astar(self):
+    def astar(self, heuristic):
         """A* algorithm."""
-        front = [[self.heuristic_2(self.start_state), self.start_state]]    # optional: heuristic_1
+        def f(x, y):
+            return {
+                HeuristicType.MISPLACE: self.heuristic_misplaced(y),
+                HeuristicType.MANHATTAN: self.heuristic_manhattan(y),
+            }.get(x, None)
+
+        front = [[f(heuristic, self.start_state), self.start_state]]
         expanded = []
         expanded_nodes = 0
         while front:
@@ -89,7 +95,7 @@ class Solver(object):
             for k in self.moves(endnode):
                 if k in expanded:
                     continue
-                newpath = [path[0] + self.heuristic_2(k) - self.heuristic_2(endnode)] + path[1:] + [k]
+                newpath = [path[0] + f(heuristic, k) - f(heuristic, endnode)] + path[1:] + [k]
                 front.append(newpath)
                 if endnode not in expanded:
                     expanded.append(endnode)
@@ -149,19 +155,19 @@ class Solver(object):
 
     # region Heuristics
 
-    def heuristic_1(self, puzz):
+    def heuristic_misplaced(self, puzz):
         """Counts the number of misplaced tiles./Hamming distance"""
         misplaced = 0
-        compare = 0
+        compare = 1
         # m = eval(puzz)
         for i in range(self.size):
             for j in range(self.size):
-                if puzz[i][j] != compare:
+                if puzz[i][j] != compare % 16:
                     misplaced += 1
                 compare += 1
         return misplaced
 
-    def heuristic_2(self, puzz):
+    def heuristic_manhattan(self, puzz):
         """Manhattan distance."""
         distance = 0
         # m = eval(puzz)
