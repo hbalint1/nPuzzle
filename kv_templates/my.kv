@@ -1,0 +1,48 @@
+#:kivy 1.0
+
+<Controller>:
+    BoxLayout:
+        size_hint: .6, 1
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 1, .1
+            TextInput:
+                id: text_input
+                hint_text: '1,2,3,4,5,6,7,8,9,10,11,12,13,15,14,0'
+                text: '1,2,3,4,5,6,7,8,9,10,11,12,13,15,14,0'
+            Button:
+                id: start_btn
+                text: 'Start'
+        GridLayout:
+            id: grid_layout
+            cols: 4
+            size_hint: 1,.8
+        BoxLayout:
+            size_hint: 1,.1
+            Button:
+                id: random_btn
+                text: 'Random'
+            Button:
+                id: solve_btn
+                text: 'Solve'
+    BoxLayout:
+        canvas:
+            Color:
+                rgba: 1, 1, 1, .2
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        orientation: 'vertical'
+        size_hint: .4, 1
+        Spinner:
+            id: sp1
+            values: root.vals
+            # text: str(len(root.vals))
+            text: str(root.vals[0:1]).strip('[\[\]\']')
+            pos_hint: {'center_y': .7}
+            height: '48dp'
+        Spinner:
+            text: 'Home'
+            values: ('Home', 'Work', 'Other', 'Not defined')
+            pos_hint: {'center_y': .4}
+            height: '48dp'

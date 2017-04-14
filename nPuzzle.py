@@ -1,8 +1,4 @@
-from View import NPuzzle
-from gameLogic import GameLogic
-
-from solver import Solver
-from solver import AlgorithmTye
+from View.View import NPuzzle
 
 __author__ = 'Balint'
 """nPuzzle game with Python."""

@@ -1,10 +1,12 @@
-from node import Node
 from enum import Enum
+
+from Solver.node import Node
+
 __author__ = 'Balint'
 """Automatic solving solutions."""
 
 
-class AlgorithmTye(Enum):
+class AlgorithmType(Enum):
     ASTAR = 1
     BREADTHFIRST = 2
 
@@ -35,9 +37,9 @@ class Solver(object):
         if(not self.is_solvable()):
             return None
 
-        if algorithm == AlgorithmTye.ASTAR:
+        if algorithm == AlgorithmType.ASTAR:
             return self.astar()
-        elif algorithm == AlgorithmTye.BREADTHFIRST:
+        elif algorithm == AlgorithmType.BREADTHFIRST:
             return self.breadth_first()
 
     # region Algorithms
