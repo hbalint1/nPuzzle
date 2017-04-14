@@ -64,7 +64,7 @@ class Solver(object):
             expanded.append(endnode)
             expanded_nodes += 1
             if endnode == self.end_state:
-                break
+                return path
         print("Expanded nodes:", expanded_nodes)
         print("Solution:")
         # pp.pprint(path)
