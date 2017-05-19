@@ -48,7 +48,6 @@ class Solver(object):
         """Breadth First algorithm."""
         front = [[self.start_state]]
         expanded = []
-        expanded_nodes = 0
         while front:
             i = 0
             for j in range(1, len(front)):    # minimum
@@ -62,12 +61,8 @@ class Solver(object):
                 if k in expanded: continue
                 front.append(path + [k])
             expanded.append(endnode)
-            expanded_nodes += 1
             if endnode == self.end_state:
                 return path
-        print("Expanded nodes:", expanded_nodes)
-        print("Solution:")
-        # pp.pprint(path)
 
     def astar(self, heuristic):
         """A* algorithm."""
@@ -79,7 +74,6 @@ class Solver(object):
 
         front = [[f(heuristic, self.start_state), self.start_state]]
         expanded = []
-        expanded_nodes = 0
         while front:
             i = 0
             for j in range(1, len(front)):
@@ -99,15 +93,8 @@ class Solver(object):
                 front.append(newpath)
                 if endnode not in expanded:
                     expanded.append(endnode)
-            expanded_nodes += 1
-            # if expanded_nodes % 1000 == 0:
-            #     print(expanded_nodes)
-        # print("Expanded nodes:", expanded_nodes)
-        # print("Solution:")
-        # for i in path:
-        #     print(i)
+
         return path
-        # pp.pprint(path)
 
     def astar2(self, start, goal):
         """A* algorithm."""
@@ -176,14 +163,11 @@ class Solver(object):
                 value = puzz[i][j]
                 if value == 0:
                     continue
-                targetX = int((value - 1) / self.size)  # expected x-coordinate (row)
-                targetY = int((value - 1) % self.size)  # expected y-coordinate (col)
-                dx = i - targetX   # x-distance to expected coordinate
-                dy = j - targetY   # y-distance to expected coordinate
-                # print(value, abs(dx) + abs(dy))
+                targetX = int((value - 1) / self.size)
+                targetY = int((value - 1) % self.size)
+                dx = i - targetX
+                dy = j - targetY
                 distance += abs(dx) + abs(dy)
-                # distance += abs(i - (puzz[i][j] / self.size)) + abs(j - (puzz[i][j] % self.size))
-                # print(distance)
         return distance
 
     #endregion
