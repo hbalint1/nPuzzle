@@ -1,10 +1,12 @@
-from node import Node
 from enum import Enum
+
+from Solver.node import Node
+
 __author__ = 'Balint'
 """Automatic solving solutions."""
 
 
-class AlgorithmTye(Enum):
+class AlgorithmType(Enum):
     ASTAR = 1
     BREADTHFIRST = 2
 
@@ -35,9 +37,9 @@ class Solver(object):
         if(not self.is_solvable()):
             return None
 
-        if algorithm == AlgorithmTye.ASTAR:
-            return self.astar()
-        elif algorithm == AlgorithmTye.BREADTHFIRST:
+        if algorithm == AlgorithmType.ASTAR:
+            return self.astar(heuristic)
+        elif algorithm == AlgorithmType.BREADTHFIRST:
             return self.breadth_first()
 
     # region Algorithms
@@ -46,7 +48,6 @@ class Solver(object):
         """Breadth First algorithm."""
         front = [[self.start_state]]
         expanded = []
-        expanded_nodes = 0
         while front:
             i = 0
             for j in range(1, len(front)):    # minimum
@@ -60,18 +61,19 @@ class Solver(object):
                 if k in expanded: continue
                 front.append(path + [k])
             expanded.append(endnode)
-            expanded_nodes += 1
             if endnode == self.end_state:
-                break
-        print("Expanded nodes:", expanded_nodes)
-        print("Solution:")
-        # pp.pprint(path)
+                return path
 
-    def astar(self):
+    def astar(self, heuristic):
         """A* algorithm."""
-        front = [[self.heuristic_2(self.start_state), self.start_state]]    # optional: heuristic_1
+        def f(x, y):
+            return {
+                HeuristicType.MISPLACE: self.heuristic_misplaced(y),
+                HeuristicType.MANHATTAN: self.heuristic_manhattan(y),
+            }.get(x, None)
+
+        front = [[f(heuristic, self.start_state), self.start_state]]
         expanded = []
-        expanded_nodes = 0
         while front:
             i = 0
             for j in range(1, len(front)):
@@ -87,19 +89,12 @@ class Solver(object):
             for k in self.moves(endnode):
                 if k in expanded:
                     continue
-                newpath = [path[0] + self.heuristic_2(k) - self.heuristic_2(endnode)] + path[1:] + [k]
+                newpath = [path[0] + f(heuristic, k) - f(heuristic, endnode)] + path[1:] + [k]
                 front.append(newpath)
                 if endnode not in expanded:
                     expanded.append(endnode)
-            expanded_nodes += 1
-            # if expanded_nodes % 1000 == 0:
-            #     print(expanded_nodes)
-        # print("Expanded nodes:", expanded_nodes)
-        # print("Solution:")
-        # for i in path:
-        #     print(i)
+
         return path
-        # pp.pprint(path)
 
     def astar2(self, start, goal):
         """A* algorithm."""
@@ -147,19 +142,19 @@ class Solver(object):
 
     # region Heuristics
 
-    def heuristic_1(self, puzz):
+    def heuristic_misplaced(self, puzz):
         """Counts the number of misplaced tiles./Hamming distance"""
         misplaced = 0
-        compare = 0
+        compare = 1
         # m = eval(puzz)
         for i in range(self.size):
             for j in range(self.size):
-                if puzz[i][j] != compare:
+                if puzz[i][j] != compare % 16:
                     misplaced += 1
                 compare += 1
         return misplaced
 
-    def heuristic_2(self, puzz):
+    def heuristic_manhattan(self, puzz):
         """Manhattan distance."""
         distance = 0
         # m = eval(puzz)
@@ -168,14 +163,11 @@ class Solver(object):
                 value = puzz[i][j]
                 if value == 0:
                     continue
-                targetX = int((value - 1) / self.size)  # expected x-coordinate (row)
-                targetY = int((value - 1) % self.size)  # expected y-coordinate (col)
-                dx = i - targetX   # x-distance to expected coordinate
-                dy = j - targetY   # y-distance to expected coordinate
-                # print(value, abs(dx) + abs(dy))
+                targetX = int((value - 1) / self.size)
+                targetY = int((value - 1) % self.size)
+                dx = i - targetX
+                dy = j - targetY
                 distance += abs(dx) + abs(dy)
-                # distance += abs(i - (puzz[i][j] / self.size)) + abs(j - (puzz[i][j] % self.size))
-                # print(distance)
         return distance
 
     #endregion
